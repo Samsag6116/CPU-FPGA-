@@ -1,0 +1,999 @@
+Analysis & Synthesis report for CPU
+Mon Apr 03 13:26:01 2017
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Port Connectivity Checks: "decoder:SEGEMENT_D_FILE_1"
+ 12. Port Connectivity Checks: "decoder:SEGEMENT_B_FILE_1"
+ 13. Port Connectivity Checks: "decoder:SEGEMENT_A_FILE_1"
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++---------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Apr 03 13:26:01 2017      ;
+; Quartus II 64-Bit Version       ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name                   ; CPU                                        ;
+; Top-level Entity Name           ; CPU                                        ;
+; Family                          ; Cyclone V                                  ;
+; Logic utilization (in ALMs)     ; N/A                                        ;
+; Total registers                 ; 86                                         ;
+; Total pins                      ; 190                                        ;
+; Total virtual pins              ; 0                                          ;
+; Total block memory bits         ; 0                                          ;
+; Total DSP Blocks                ; 0                                          ;
+; Total HSSI RX PCSs              ; 0                                          ;
+; Total HSSI PMA RX Deserializers ; 0                                          ;
+; Total HSSI TX PCSs              ; 0                                          ;
+; Total HSSI PMA TX Serializers   ; 0                                          ;
+; Total PLLs                      ; 0                                          ;
+; Total DLLs                      ; 0                                          ;
++---------------------------------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; CPU                ; CPU                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; decoder.vhd                      ; yes             ; User VHDL File  ; C:/Users/SagAr/Desktop/lab6_cpu_sagar/lab6_cpu_sagar/decoder.vhd        ;         ;
+; SHIFTER.vhd                      ; yes             ; User VHDL File  ; C:/Users/SagAr/Desktop/lab6_cpu_sagar/lab6_cpu_sagar/SHIFTER.vhd        ;         ;
+; REGFILE.vhd                      ; yes             ; User VHDL File  ; C:/Users/SagAr/Desktop/lab6_cpu_sagar/lab6_cpu_sagar/REGFILE.vhd        ;         ;
+; CPU.vhd                          ; yes             ; User VHDL File  ; C:/Users/SagAr/Desktop/lab6_cpu_sagar/lab6_cpu_sagar/CPU.vhd            ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; C:/Users/SagAr/Desktop/lab6_cpu_sagar/lab6_cpu_sagar/ALU.vhd            ;         ;
+; microcode_rom.vhdl               ; yes             ; User VHDL File  ; C:/Users/SagAr/Desktop/lab6_cpu_sagar/lab6_cpu_sagar/microcode_rom.vhdl ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 181       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 287       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 70        ;
+;     -- 5 input functions                    ; 23        ;
+;     -- 4 input functions                    ; 93        ;
+;     -- <=3 input functions                  ; 101       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 86        ;
+;                                             ;           ;
+; I/O pins                                    ; 190       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 64        ;
+; Total fan-out                               ; 1965      ;
+; Average fan-out                             ; 2.19      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------+--------------+
+; Compilation Hierarchy Node            ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Library Name ;
++---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------+--------------+
+; |CPU                                  ; 287 (11)          ; 86 (30)      ; 0                 ; 0          ; 190  ; 0            ; |CPU                                  ; work         ;
+;    |ALU:ALU_FILE|                     ; 73 (73)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|ALU:ALU_FILE                     ; work         ;
+;    |REGFILE:REGISTER_FILE|            ; 73 (73)           ; 56 (56)      ; 0                 ; 0          ; 0    ; 0            ; |CPU|REGFILE:REGISTER_FILE            ; work         ;
+;    |SHIFTER:SHIFTER_FILE|             ; 41 (41)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|SHIFTER:SHIFTER_FILE             ; work         ;
+;    |decoder:SEGEMENT_A_FILE_1|        ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGEMENT_A_FILE_1        ; work         ;
+;    |decoder:SEGEMENT_B_FILE_1|        ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGEMENT_B_FILE_1        ; work         ;
+;    |decoder:SEGEMENT_D_FILE_1|        ; 10 (10)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGEMENT_D_FILE_1        ; work         ;
+;    |decoder:SEGMENT_ALU_FILE|         ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGMENT_ALU_FILE         ; work         ;
+;    |decoder:SEGMENT_A_FILE|           ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGMENT_A_FILE           ; work         ;
+;    |decoder:SEGMENT_B_FILE|           ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGMENT_B_FILE           ; work         ;
+;    |decoder:SEGMENT_CAR_FILE|         ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|decoder:SEGMENT_CAR_FILE         ; work         ;
+;    |microcode_rom:MICROCODE_ROM_FILE| ; 37 (37)           ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |CPU|microcode_rom:MICROCODE_ROM_FILE ; work         ;
++---------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                      ;
++-----------------------------------------------------+---------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal       ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------------+------------------------+
+; SHIFTER:SHIFTER_FILE|temp[0]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[1]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[2]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[3]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[4]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[5]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[6]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; SHIFTER:SHIFTER_FILE|temp[7]                        ; SHIFTER:SHIFTER_FILE|Mux2 ; yes                    ;
+; ALU:ALU_FILE|F_int[0]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[0]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|c                                      ; ALU:ALU_FILE|Mux18        ; yes                    ;
+; ALU:ALU_FILE|F_log[7]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|F_int[7]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_int[1]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[1]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|F_int[2]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[2]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|F_int[3]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[3]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|F_int[4]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[4]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|F_int[5]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[5]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|F_int[6]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; ALU:ALU_FILE|F_log[6]                               ; ALU:ALU_FILE|Mux9         ; yes                    ;
+; ALU:ALU_FILE|z                                      ; ALU:ALU_FILE|Mux20        ; yes                    ;
+; ALU:ALU_FILE|s                                      ; ALU:ALU_FILE|Mux20        ; yes                    ;
+; ALU:ALU_FILE|v                                      ; ALU:ALU_FILE|Mux18        ; yes                    ;
+; ALU:ALU_FILE|F_int[8]                               ; ALU:ALU_FILE|Mux23        ; yes                    ;
+; Number of user-specified and inferred latches = 29  ;                           ;                        ;
++-----------------------------------------------------+---------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 86    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 29    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 56    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R4[1] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R5[6] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R6[6] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R7[1] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R1[6] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R2[5] ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |CPU|REGFILE:REGISTER_FILE|R3[7] ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 0 LEs                ; 72 LEs                 ; Yes        ; |CPU|CAR[2]~reg0                 ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |CPU|REGFILE:REGISTER_FILE|Mux61 ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |CPU|REGFILE:REGISTER_FILE|Mux67 ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 18 LEs               ; 6 LEs                  ; No         ; |CPU|SHIFTER:SHIFTER_FILE|Mux2   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|ALU:ALU_FILE|Add0           ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |CPU|ALU:ALU_FILE|Mux0           ;
+; 16:1               ; 7 bits    ; 70 LEs        ; 21 LEs               ; 49 LEs                 ; No         ; |CPU|ALU:ALU_FILE|Mux2           ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |CPU|ALU:ALU_FILE|Mux24          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "decoder:SEGEMENT_D_FILE_1" ;
++-----------+-------+----------+------------------------+
+; Port      ; Type  ; Severity ; Details                ;
++-----------+-------+----------+------------------------+
+; binary[3] ; Input ; Info     ; Stuck at GND           ;
++-----------+-------+----------+------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "decoder:SEGEMENT_B_FILE_1" ;
++-----------+-------+----------+------------------------+
+; Port      ; Type  ; Severity ; Details                ;
++-----------+-------+----------+------------------------+
+; binary[3] ; Input ; Info     ; Stuck at GND           ;
++-----------+-------+----------+------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "decoder:SEGEMENT_A_FILE_1" ;
++-----------+-------+----------+------------------------+
+; Port      ; Type  ; Severity ; Details                ;
++-----------+-------+----------+------------------------+
+; binary[3] ; Input ; Info     ; Stuck at GND           ;
++-----------+-------+----------+------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 86                          ;
+;     ENA               ; 56                          ;
+;     SLD               ; 29                          ;
+;     plain             ; 1                           ;
+; arriav_io_obuf        ; 144                         ;
+; arriav_lcell_comb     ; 288                         ;
+;     arith             ; 18                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 2                           ;
+;         4 data inputs ; 8                           ;
+;     normal            ; 270                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 69                          ;
+;         4 data inputs ; 85                          ;
+;         5 data inputs ; 23                          ;
+;         6 data inputs ; 70                          ;
+; boundary_port         ; 190                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.80                        ;
+; Average LUT depth     ; 3.54                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Mon Apr 03 13:25:42 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: decoder-RTL
+    Info (12023): Found entity 1: decoder
+Info (12021): Found 2 design units, including 1 entities, in source file shifter.vhd
+    Info (12022): Found design unit 1: SHIFTER-RTL
+    Info (12023): Found entity 1: SHIFTER
+Info (12021): Found 2 design units, including 1 entities, in source file regfile.vhd
+    Info (12022): Found design unit 1: REGFILE-RTL
+    Info (12023): Found entity 1: REGFILE
+Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
+    Info (12022): Found design unit 1: CPU-RTL
+    Info (12023): Found entity 1: CPU
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU-behaviour
+    Info (12023): Found entity 1: ALU
+Info (12021): Found 2 design units, including 1 entities, in source file microcode_rom.vhdl
+    Info (12022): Found design unit 1: microcode_rom-RTL
+    Info (12023): Found entity 1: microcode_rom
+Info (12127): Elaborating entity "CPU" for the top level hierarchy
+Warning (10665): Bidirectional port "CPU_DATA_OUT[31]" at CPU.vhd(39) has a one-way connection to bidirectional port "ASEL[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[30]" at CPU.vhd(39) has a one-way connection to bidirectional port "ASEL[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[29]" at CPU.vhd(39) has a one-way connection to bidirectional port "ASEL[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[28]" at CPU.vhd(39) has a one-way connection to bidirectional port "BSEL[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[27]" at CPU.vhd(39) has a one-way connection to bidirectional port "BSEL[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[26]" at CPU.vhd(39) has a one-way connection to bidirectional port "BSEL[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[25]" at CPU.vhd(39) has a one-way connection to bidirectional port "DSEL[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[24]" at CPU.vhd(39) has a one-way connection to bidirectional port "DSEL[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[23]" at CPU.vhd(39) has a one-way connection to bidirectional port "DSEL[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[22]" at CPU.vhd(39) has a one-way connection to bidirectional port "SSEL[3]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[21]" at CPU.vhd(39) has a one-way connection to bidirectional port "SSEL[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[20]" at CPU.vhd(39) has a one-way connection to bidirectional port "SSEL[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[19]" at CPU.vhd(39) has a one-way connection to bidirectional port "SSEL[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[18]" at CPU.vhd(39) has a one-way connection to bidirectional port "HSEL[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[17]" at CPU.vhd(39) has a one-way connection to bidirectional port "HSEL[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[16]" at CPU.vhd(39) has a one-way connection to bidirectional port "HSEL[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[15]" at CPU.vhd(39) has a one-way connection to bidirectional port "MUX1"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[14]" at CPU.vhd(39) has a one-way connection to bidirectional port "MUX2[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[13]" at CPU.vhd(39) has a one-way connection to bidirectional port "MUX2[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[12]" at CPU.vhd(39) has a one-way connection to bidirectional port "MUX2[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[11]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[7]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[10]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[6]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[9]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[5]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[8]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[4]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[7]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[3]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[6]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[5]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[4]" at CPU.vhd(39) has a one-way connection to bidirectional port "ADRS[0]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[3]" at CPU.vhd(39) has a one-way connection to bidirectional port "MISC[3]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[2]" at CPU.vhd(39) has a one-way connection to bidirectional port "MISC[2]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[1]" at CPU.vhd(39) has a one-way connection to bidirectional port "MISC[1]"
+Warning (10665): Bidirectional port "CPU_DATA_OUT[0]" at CPU.vhd(39) has a one-way connection to bidirectional port "MISC[0]"
+Info (12128): Elaborating entity "microcode_rom" for hierarchy "microcode_rom:MICROCODE_ROM_FILE"
+Info (12128): Elaborating entity "REGFILE" for hierarchy "REGFILE:REGISTER_FILE"
+Warning (10541): VHDL Signal Declaration warning at REGFILE.vhd(48): used implicit default value for signal "R0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(82): signal "R1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(83): signal "R2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(84): signal "R3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(85): signal "R4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(86): signal "R5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(87): signal "R6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(88): signal "R7" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(89): signal "DIN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(97): signal "R0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(98): signal "R1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(99): signal "R2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(100): signal "R3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(101): signal "R4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(102): signal "R5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(103): signal "R6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(104): signal "R7" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at REGFILE.vhd(105): signal "DIN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_FILE"
+Warning (10492): VHDL Process Statement warning at ALU.vhd(51): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(55): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(60): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(65): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(69): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(74): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(79): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(84): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(89): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(93): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(98): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(103): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(108): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(113): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(117): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(122): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(127): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(131): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(136): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(140): signal "F_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(146): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(151): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(155): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(159): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(164): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(168): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(172): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(177): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(181): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(185): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(190): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU.vhd(194): signal "F_log" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at ALU.vhd(45): inferring latch(es) for signal or variable "F_int", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(45): inferring latch(es) for signal or variable "s", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(45): inferring latch(es) for signal or variable "z", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(45): inferring latch(es) for signal or variable "c", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(45): inferring latch(es) for signal or variable "v", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU.vhd(45): inferring latch(es) for signal or variable "F_log", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "F_log[0]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[1]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[2]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[3]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[4]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[5]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[6]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_log[7]" at ALU.vhd(45)
+Info (10041): Inferred latch for "v" at ALU.vhd(45)
+Info (10041): Inferred latch for "c" at ALU.vhd(45)
+Info (10041): Inferred latch for "z" at ALU.vhd(45)
+Info (10041): Inferred latch for "s" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[0]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[1]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[2]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[3]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[4]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[5]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[6]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[7]" at ALU.vhd(45)
+Info (10041): Inferred latch for "F_int[8]" at ALU.vhd(45)
+Info (12128): Elaborating entity "SHIFTER" for hierarchy "SHIFTER:SHIFTER_FILE"
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(47): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(48): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(50): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(51): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(53): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(54): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(59): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(60): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(61): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(61): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(63): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(64): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(66): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(67): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(69): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(70): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(71): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(71): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(73): signal "input_bus" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at SHIFTER.vhd(74): signal "carry_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at SHIFTER.vhd(42): inferring latch(es) for signal or variable "temp", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "temp[0]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[1]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[2]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[3]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[4]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[5]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[6]" at SHIFTER.vhd(42)
+Info (10041): Inferred latch for "temp[7]" at SHIFTER.vhd(42)
+Info (12128): Elaborating entity "decoder" for hierarchy "decoder:SEGMENT_CAR_FILE"
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CARRY" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[7]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ALU_OUT[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[7]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[12]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[13]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[14]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[16]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[17]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[18]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[19]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[20]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[21]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[22]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[23]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[24]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[25]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[26]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[27]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[28]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[29]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[30]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CPU_DATA_OUT[31]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "COUNT" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ZERO" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SIGN" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CARRY_OUT_SHIFTER" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "OVERFLOW" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "A_BUS_VALUE[7]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "B_BUS_VALUE[7]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "ASEL_R_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "BSEL_R_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "DSEL_R_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_ASEL_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_BSEL_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[0]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[1]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[2]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[3]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "SEG_DSEL_VALUE[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[4]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[5]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[6]" and its non-tri-state driver.
+    Warning (13035): Inserted always-enabled tri-state buffer between "CAR[7]" and its non-tri-state driver.
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "CPU_DATA_OUT[0]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[1]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[2]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[3]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[8]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[9]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[10]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[11]" is fed by GND
+    Warning (13033): The pin "CPU_DATA_OUT[15]" is fed by GND
+Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CARRY" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "HSEL[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[7]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "HSEL[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "HSEL[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ALU_OUT[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[7]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[12]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[13]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[14]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[16]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[17]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[18]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[19]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[20]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[21]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[22]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[23]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[24]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[25]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[26]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[27]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[28]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[29]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[30]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CPU_DATA_OUT[31]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "COUNT" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ZERO" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SIGN" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "OVERFLOW" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "A_BUS_VALUE[7]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "B_BUS_VALUE[7]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL_R_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL_R_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL_R_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_ASEL_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_BSEL_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SEG_DSEL_VALUE[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ASEL[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "BSEL[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "DSEL[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SSEL[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SSEL[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SSEL[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "SSEL[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "MUX2[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "MUX2[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "MUX2[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[0]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[1]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[2]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[3]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "ADRS[7]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[4]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[5]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[6]" is moved to its source
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "CAR[7]" is moved to its source
+Info (13036): One or more bidirectional pins are fed by always-enabled (GND-fed) open-drain buffers
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[0]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[1]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[2]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[3]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[8]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[9]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[10]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[11]" is set to GND
+    Info (13037): Fan-out of permanently enabled (GND-fed) open-drain buffer feeding bidirectional pin "CPU_DATA_OUT[15]" is set to GND
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "ALU:ALU_FILE|v" merged with LATCH primitive "ALU:ALU_FILE|c"
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch SHIFTER:SHIFTER_FILE|temp[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[0]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|c has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_log[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|z has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[2]~reg0
+Warning (13012): Latch ALU:ALU_FILE|s has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[7]~reg0
+Warning (13012): Latch ALU:ALU_FILE|F_int[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal CAR[2]~reg0
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "CPU_DATA_OUT[4]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[5]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[6]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[7]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[12]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[13]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[14]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[16]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[17]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[18]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[19]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[20]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[21]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[22]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[23]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[24]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[25]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[26]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[27]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[28]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[29]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[30]~synth"
+    Warning (13010): Node "CPU_DATA_OUT[31]~synth"
+    Warning (13010): Node "ALU_OUT[0]~synth"
+    Warning (13010): Node "ALU_OUT[1]~synth"
+    Warning (13010): Node "ALU_OUT[2]~synth"
+    Warning (13010): Node "ALU_OUT[3]~synth"
+    Warning (13010): Node "ALU_OUT[4]~synth"
+    Warning (13010): Node "ALU_OUT[5]~synth"
+    Warning (13010): Node "ALU_OUT[6]~synth"
+    Warning (13010): Node "ALU_OUT[7]~synth"
+    Warning (13010): Node "COUNT~synth"
+    Warning (13010): Node "ZERO~synth"
+    Warning (13010): Node "SIGN~synth"
+    Warning (13010): Node "CARRY~synth"
+    Warning (13010): Node "CARRY_OUT_SHIFTER~synth"
+    Warning (13010): Node "OVERFLOW~synth"
+    Warning (13010): Node "A_BUS_VALUE[0]~synth"
+    Warning (13010): Node "A_BUS_VALUE[1]~synth"
+    Warning (13010): Node "A_BUS_VALUE[2]~synth"
+    Warning (13010): Node "A_BUS_VALUE[3]~synth"
+    Warning (13010): Node "A_BUS_VALUE[4]~synth"
+    Warning (13010): Node "A_BUS_VALUE[5]~synth"
+    Warning (13010): Node "A_BUS_VALUE[6]~synth"
+    Warning (13010): Node "A_BUS_VALUE[7]~synth"
+    Warning (13010): Node "B_BUS_VALUE[0]~synth"
+    Warning (13010): Node "B_BUS_VALUE[1]~synth"
+    Warning (13010): Node "B_BUS_VALUE[2]~synth"
+    Warning (13010): Node "B_BUS_VALUE[3]~synth"
+    Warning (13010): Node "B_BUS_VALUE[4]~synth"
+    Warning (13010): Node "B_BUS_VALUE[5]~synth"
+    Warning (13010): Node "B_BUS_VALUE[6]~synth"
+    Warning (13010): Node "B_BUS_VALUE[7]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[0]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[1]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[2]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[3]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[4]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[5]~synth"
+    Warning (13010): Node "ASEL_R_VALUE[6]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[0]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[1]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[2]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[3]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[4]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[5]~synth"
+    Warning (13010): Node "BSEL_R_VALUE[6]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[0]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[1]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[2]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[3]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[4]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[5]~synth"
+    Warning (13010): Node "DSEL_R_VALUE[6]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[0]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[1]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[2]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[3]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[4]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[5]~synth"
+    Warning (13010): Node "SEG_ASEL_VALUE[6]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[0]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[1]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[2]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[3]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[4]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[5]~synth"
+    Warning (13010): Node "SEG_BSEL_VALUE[6]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[0]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[1]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[2]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[3]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[4]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[5]~synth"
+    Warning (13010): Node "SEG_DSEL_VALUE[6]~synth"
+    Warning (13010): Node "ASEL[0]~synth"
+    Warning (13010): Node "ASEL[1]~synth"
+    Warning (13010): Node "ASEL[2]~synth"
+    Warning (13010): Node "BSEL[0]~synth"
+    Warning (13010): Node "BSEL[1]~synth"
+    Warning (13010): Node "BSEL[2]~synth"
+    Warning (13010): Node "DSEL[0]~synth"
+    Warning (13010): Node "DSEL[1]~synth"
+    Warning (13010): Node "DSEL[2]~synth"
+    Warning (13010): Node "SSEL[0]~synth"
+    Warning (13010): Node "SSEL[1]~synth"
+    Warning (13010): Node "SSEL[2]~synth"
+    Warning (13010): Node "SSEL[3]~synth"
+    Warning (13010): Node "HSEL[0]~synth"
+    Warning (13010): Node "HSEL[1]~synth"
+    Warning (13010): Node "HSEL[2]~synth"
+    Warning (13010): Node "MUX2[0]~synth"
+    Warning (13010): Node "MUX2[1]~synth"
+    Warning (13010): Node "MUX2[2]~synth"
+    Warning (13010): Node "ADRS[0]~synth"
+    Warning (13010): Node "ADRS[1]~synth"
+    Warning (13010): Node "ADRS[2]~synth"
+    Warning (13010): Node "ADRS[3]~synth"
+    Warning (13010): Node "CAR[0]~synth"
+    Warning (13010): Node "CAR[1]~synth"
+    Warning (13010): Node "CAR[2]~synth"
+    Warning (13010): Node "CAR[3]~synth"
+    Warning (13010): Node "CAR[4]~synth"
+    Warning (13010): Node "CAR[5]~synth"
+    Warning (13010): Node "CAR[6]~synth"
+    Warning (13010): Node "CAR[7]~synth"
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 544 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 36 output pins
+    Info (21060): Implemented 144 bidirectional pins
+    Info (21061): Implemented 354 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 407 warnings
+    Info: Peak virtual memory: 772 megabytes
+    Info: Processing ended: Mon Apr 03 13:26:01 2017
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:37
+
+

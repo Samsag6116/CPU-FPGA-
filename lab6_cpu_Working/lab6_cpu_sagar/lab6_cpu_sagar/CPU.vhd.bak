@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------------------------------------------------
+--	Copyright <2017> EECE8020 Reconfigurable system Principles. All rights reserved.																	
+																																												
+--	Summary				:  Lab 6 VHDL code - CPU
+--								In this code We merge all above ALU, Shifter and Regfile and try to make CPU that
+--							   works on microcode instruction that we have written in micro code file as like a real
+--								CPU and display the output on 7 segment decoder according the which instruction fetched.
+								
+--	Programmer			:  SAGAR PATEL and EMILY ADAMS
+								
+--	Revision History	:	03/24/2017 <spatel1652> Rev. <1.0 Initial Creation>
+--								03/30/2017 <spatel1652> Rev. <2.0 Commenting the code>
+
+----------------------------------------------------------------------------------------------------------------------------------								
+
+-------------------- Library --------------------
+
+library IEEE;
+use IEEE.std_logic_1164.All;
+use IEEE.numeric_std.ALL;
+
+-------------------- I/O declaration(entity) --------------------
