@@ -2,14 +2,14 @@
 --	Copyright <2017> EECE8020 Reconfigurable system Principles. All rights reserved.																	
 																																												
 --	Summary				:  Lab 6 VHDL code - CPU
---								In this code We merge all above ALU, Shifter and Regfile and try to make CPU that
---							   works on microcode instruction that we have written in micro code file as like a real
---								CPU and display the output on 7 segment decoder according the which instruction fetched.
+--                                  	   In this code We merge all above ALU, Shifter and Regfile and try to make CPU that
+--					   works on microcode instruction that we have written in micro code file as like a real
+--					   CPU and display the output on 7 segment decoder according the which instruction fetched.
 								
 --	Programmer			:  SAGAR PATEL and EMILY ADAMS
 								
---	Revision History	:	03/24/2017 <spatel1652> Rev. <1.0 Initial Creation>
---								03/30/2017 <spatel1652> Rev. <2.0 Commenting the code>
+--	Revision History	        :  03/24/2017 <spatel1652> Rev. <1.0 Initial Creation>
+--					   03/30/2017 <spatel1652> Rev. <2.0 Commenting the code>
 
 ----------------------------------------------------------------------------------------------------------------------------------								
 
@@ -59,10 +59,10 @@ port (
   		  SEG_BSEL_VALUE : inout std_logic_vector(6 downto 0);
   		  SEG_DSEL_VALUE : inout std_logic_vector(6 downto 0);
 		  
-		  -- microcode
-	     ASEL : inout std_logic_vector( 2 downto 0); -- 3bit
+	  -- microcode
+	ASEL : inout std_logic_vector( 2 downto 0); -- 3bit
         BSEL : inout std_logic_vector( 2 downto 0); -- 3bit
-		  DSEL : inout std_logic_vector( 2 downto 0); -- 3bit
+	DSEL : inout std_logic_vector( 2 downto 0); -- 3bit
         SSEL : inout std_logic_vector( 3 downto 0); -- 4bit
         HSEL : inout std_logic_vector( 2 downto 0); -- 3bit
         MUX1 : inout std_logic;
